@@ -22,7 +22,3 @@ hooks:
   ApplicationStart:
     - location: codedeploy/app_start.sh
       timeout: 180
-  ValidateService:
-    - location: codedeploy/validate_service.sh
-      timeout: 180
-
