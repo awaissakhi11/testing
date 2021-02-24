@@ -4,6 +4,14 @@ files:
   - source: /
     destination: /usr/cddemo
     overwrite: true
+permissions:
+  - object: /usr/cddemo/codedeploy
+    pattern: "*.sh"
+    owner: root
+    group: root
+    mode: 777
+    type:
+      - file
 hooks:
   BeforeInstall:
     - location: codedeploy/before_install.sh
@@ -13,9 +21,6 @@ hooks:
       timeout: 180
   ApplicationStart:
     - location: codedeploy/app_start.sh
-      timeout: 180
-  ApplicationStop:
-    - location: codedeploy/app_stop.sh
       timeout: 180
   ValidateService:
     - location: codedeploy/validate_service.sh
